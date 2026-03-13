@@ -14,13 +14,13 @@ export default function Navbar() {
       initial={{ opacity: 0, y: -14 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8"
+      className="pointer-events-none fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-6 sm:pt-4 lg:px-8"
     >
-      <div className="pointer-events-auto mx-auto flex w-full max-w-[1320px] items-center justify-between gap-6">
+      <div className="pointer-events-auto mx-auto flex w-full max-w-[1320px] flex-col gap-3 md:flex-row md:items-center md:justify-between md:gap-6">
         {/* LEFT LOGO */}
         <a
           href="#hero"
-          className="shrink-0 transition duration-300 hover:scale-[1.03]"
+          className="shrink-0 self-start transition duration-300 hover:scale-[1.03]"
         >
           <img
             src="/images/Mylogo1.png"
@@ -28,9 +28,9 @@ export default function Navbar() {
             draggable="false"
             className="
               block
-              h-[110px] w-auto object-contain
-              sm:h-[122px]
-              md:h-[136px]
+              h-[78px] w-auto object-contain
+              sm:h-[92px]
+              md:h-[118px]
               lg:h-[145px]
               drop-shadow-[0_14px_30px_rgba(0,0,0,0.5)]
               brightness-[1.08]
@@ -40,30 +40,35 @@ export default function Navbar() {
           />
         </a>
 
-        {/* CENTER NAV */}
-        <nav className="hidden flex-1 items-center justify-center gap-3 md:flex">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="
-                rounded-full
-                border border-white/20
-                bg-white/[0.06]
-                px-6 py-3
-                text-sm font-medium
-                text-white/85
-                backdrop-blur-[14px]
-                shadow-[0_10px_30px_rgba(0,0,0,0.28)]
-                transition duration-300
-                hover:bg-white/[0.1]
-                hover:text-white
-                hover:border-white/30
-              "
-            >
-              {link.label}
-            </a>
-          ))}
+        {/* FLOATING NAV PILLS */}
+        <nav className="w-full md:flex-1">
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 md:justify-center [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="
+                  shrink-0
+                  rounded-full
+                  border border-white/20
+                  bg-white/[0.06]
+                  px-4 py-2.5
+                  text-[13px] font-medium
+                  text-white/85
+                  backdrop-blur-[14px]
+                  shadow-[0_10px_30px_rgba(0,0,0,0.28)]
+                  transition duration-300
+                  hover:bg-white/[0.1]
+                  hover:text-white
+                  hover:border-white/30
+                  sm:px-5 sm:py-3 sm:text-sm
+                  lg:px-6
+                "
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
         </nav>
       </div>
     </motion.header>

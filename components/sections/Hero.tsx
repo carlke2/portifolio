@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen overflow-hidden bg-[#070b11] text-white"
+      className="relative min-h-[100svh] overflow-hidden bg-[#070b11] text-white"
     >
       {/* Background */}
       <div className="absolute inset-0">
@@ -21,8 +21,8 @@ export default function Hero() {
       </div>
 
       {/* Hero content */}
-      <div className="relative z-10 flex min-h-screen w-full flex-col pt-[110px]">
-        <div className="mx-auto w-full max-w-[1180px] px-6 pt-8 md:px-8 md:pt-10">
+      <div className="relative z-10 flex min-h-[100svh] w-full flex-col pt-[90px] sm:pt-[100px] md:pt-[110px]">
+        <div className="mx-auto w-full max-w-[1180px] px-4 pt-6 sm:px-6 sm:pt-8 md:px-8 md:pt-10">
           <motion.h1
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
@@ -35,14 +35,16 @@ export default function Hero() {
               leading-[0.9]
               tracking-[-0.055em]
               text-white
-              text-[50px]
-              sm:text-[72px]
-              md:text-[92px]
+              text-[42px]
+              sm:text-[64px]
+              md:text-[82px]
               lg:text-[84px]
             "
           >
             <span className="block">SOFTWARE BUILT</span>
-            <span className="block pl-[14vw] md:pl-[16vw]">WITH PURPOSE</span>
+            <span className="block pl-[8vw] sm:pl-[12vw] md:pl-[16vw]">
+              WITH PURPOSE
+            </span>
           </motion.h1>
 
           <motion.p
@@ -50,11 +52,15 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
             className="
-              mt-12
+              mt-8
               max-w-[380px]
-              text-[17px]
+              text-[15px]
               leading-[1.55]
               text-white/88
+              sm:mt-10
+              sm:text-[16px]
+              md:mt-12
+              md:text-[17px]
             "
           >
             I’m a software developer passionate about creating digital experiences
@@ -63,8 +69,8 @@ export default function Hero() {
         </div>
 
         {/* Bottom glass block */}
-        <div className="mt-auto px-4 pb-7 sm:px-6 lg:px-8">
-          <div className="relative mx-auto h-[220px] w-full max-w-[1080px]">
+        <div className="mt-auto px-3 pb-4 sm:px-6 sm:pb-6 lg:px-8 lg:pb-7">
+          <div className="relative mx-auto h-[170px] w-full max-w-[1080px] sm:h-[190px] lg:h-[220px]">
             <svg
               viewBox="0 0 1280 260"
               className="absolute inset-0 h-full w-full"
@@ -369,17 +375,26 @@ export default function Hero() {
               onClick={() => setOpenSummary(true)}
               aria-label="Discover more about me"
               className="
-                absolute left-1/2 top-[123px] z-20
-                flex h-[144px] w-[144px]
+                absolute left-1/2 top-[98px] z-20
+                flex h-[110px] w-[110px]
                 -translate-x-1/2 -translate-y-1/2
                 items-center justify-center
                 rounded-full
                 text-center
-                text-[17px] font-medium uppercase tracking-[0.04em]
+                text-[13px] font-medium uppercase tracking-[0.04em]
                 text-black
                 transition duration-300
                 hover:scale-[1.04]
                 active:scale-[0.98]
+                sm:top-[108px]
+                sm:h-[122px] sm:w-[122px]
+                sm:text-[14px]
+                md:top-[116px]
+                md:h-[132px] md:w-[132px]
+                md:text-[15px]
+                lg:top-[123px]
+                lg:h-[144px] lg:w-[144px]
+                lg:text-[17px]
               "
             >
               <span className="leading-[1.15]">
@@ -389,9 +404,9 @@ export default function Hero() {
               </span>
             </button>
 
-            <div className="absolute bottom-0 left-0 right-0 z-10 flex h-[190px] items-center justify-between px-7">
-              <div className="flex items-center gap-5">
-                <div className="h-[94px] w-[94px] overflow-hidden rounded-[24px] border border-white/10 bg-white/5">
+            <div className="absolute bottom-0 left-0 right-0 z-10 flex h-[140px] items-center justify-between px-3 sm:h-[155px] sm:px-4 md:h-[170px] md:px-5 lg:h-[190px] lg:px-7">
+              <div className="flex min-w-0 items-center gap-2 sm:gap-3 lg:gap-5">
+                <div className="h-[60px] w-[60px] overflow-hidden rounded-[16px] border border-white/10 bg-white/5 sm:h-[72px] sm:w-[72px] sm:rounded-[18px] md:h-[82px] md:w-[82px] md:rounded-[20px] lg:h-[94px] lg:w-[94px] lg:rounded-[24px]">
                   <img
                     src="/images/image.png"
                     alt="Left preview"
@@ -399,16 +414,16 @@ export default function Hero() {
                   />
                 </div>
 
-                <p className="max-w-[240px] text-[15px] leading-[1.45] text-white/90">
+                <p className="max-w-[110px] text-[11px] leading-[1.4] text-white/90 sm:max-w-[150px] sm:text-[12px] md:max-w-[180px] md:text-[13px] lg:max-w-[240px] lg:text-[15px] lg:leading-[1.45]">
                   I use modern development tools and best practices to build fast,
                   secure, and scalable applications.
                 </p>
               </div>
 
-              <div className="w-[280px]" />
+              <div className="w-[90px] sm:w-[120px] md:w-[150px] lg:w-[280px]" />
 
-              <div className="flex items-center gap-5">
-                <div className="h-[94px] w-[94px] overflow-hidden rounded-[24px] border border-white/10 bg-white/5">
+              <div className="flex min-w-0 items-center gap-2 sm:gap-3 lg:gap-5">
+                <div className="h-[60px] w-[60px] overflow-hidden rounded-[16px] border border-white/10 bg-white/5 sm:h-[72px] sm:w-[72px] sm:rounded-[18px] md:h-[82px] md:w-[82px] md:rounded-[20px] lg:h-[94px] lg:w-[94px] lg:rounded-[24px]">
                   <img
                     src="/images/image.png"
                     alt="Right preview"
@@ -416,7 +431,7 @@ export default function Hero() {
                   />
                 </div>
 
-                <p className="max-w-[240px] text-[15px] leading-[1.45] text-white/90">
+                <p className="max-w-[110px] text-[11px] leading-[1.4] text-white/90 sm:max-w-[150px] sm:text-[12px] md:max-w-[180px] md:text-[13px] lg:max-w-[240px] lg:text-[15px] lg:leading-[1.45]">
                   My goal is to help ideas come to life through thoughtful code,
                   strong systems, and user-centered design.
                 </p>
@@ -441,14 +456,14 @@ export default function Hero() {
               exit={{ opacity: 0, y: 12, scale: 0.96 }}
               transition={{ duration: 0.28, ease: 'easeOut' }}
               onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-[620px] rounded-[2rem] border border-white/12 bg-white/[0.06] p-7 text-white shadow-[0_25px_70px_rgba(0,0,0,0.35)] backdrop-blur-[18px] sm:p-9"
+              className="w-full max-w-[620px] rounded-[2rem] border border-white/12 bg-white/[0.06] p-6 text-white shadow-[0_25px_70px_rgba(0,0,0,0.35)] backdrop-blur-[18px] sm:p-9"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
                     Discover More
                   </p>
-                  <h3 className="mt-3 text-2xl font-semibold text-white sm:text-3xl">
+                  <h3 className="mt-3 text-xl font-semibold text-white sm:text-3xl">
                     A brief summary about me
                   </h3>
                 </div>
@@ -463,7 +478,7 @@ export default function Hero() {
               </div>
 
               <div className="mt-6">
-                <div className="space-y-4 text-[15px] leading-7 text-white/72 sm:text-base">
+                <div className="space-y-4 text-[14px] leading-7 text-white/72 sm:text-base">
                   <p>
                     I’m a software developer focused on building clean, functional,
                     and visually strong digital products.
