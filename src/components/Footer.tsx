@@ -3,16 +3,16 @@ import { personalInfo } from '../data/portfolioData';
 
 export const Footer: React.FC = () => {
   return (
-    <footer id="contact" className="footer">
+    <footer id="contact">
       <div className="container">
-        <h2 className="footer-headline">{personalInfo.ctaHeadline}</h2>
-        <div className="footer-actions">
-          <a className="btn btn-primary" href={`mailto:${personalInfo.email}`}>
+        <h2 className="contact-head">{personalInfo.ctaHeadline}</h2>
+        <div className="hero-actions">
+          <a className="btn-primary" href={`mailto:${personalInfo.email}`}>
             Email me →
           </a>
           <a
-            className="btn btn-secondary"
-            href="https://linkedin.com/in/salat-caleb-kipkemoi-3b3875341"
+            className="btn-ghost"
+            href="https://www.linkedin.com/in/salat-caleb-kipkemoi-3b3875341/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -20,9 +20,9 @@ export const Footer: React.FC = () => {
           </a>
         </div>
 
-        <div className="bottom-bar">
+        <div className="foot-bottom">
           <span>{personalInfo.location}</span>
-          <div className="bottom-links">
+          <div className="foot-links">
             <a
               href="https://github.com/carlKe2"
               target="_blank"
@@ -31,82 +31,101 @@ export const Footer: React.FC = () => {
               GitHub
             </a>
             <a
-              href="https://linkedin.com/in/salat-caleb-kipkemoi-3b3875341"
+              href="https://www.linkedin.com/in/salat-caleb-kipkemoi-3b3875341/"
               target="_blank"
               rel="noopener noreferrer"
             >
               LinkedIn
             </a>
-            <a href={`mailto:${personalInfo.email}`}>
-              Email
-            </a>
+            <a href={`mailto:${personalInfo.email}`}>Email</a>
           </div>
         </div>
       </div>
 
       <style>{`
-        .footer {
-          padding: 88px 0 48px;
+        footer {
+          padding: 72px 0 48px;
         }
 
-        .footer-headline {
+        .contact-head {
           font-family: 'Space Grotesk', sans-serif;
-          font-size: clamp(32px, 5vw, 48px);
+          font-size: clamp(34px, 5vw, 54px);
           font-weight: 600;
+          max-width: 14ch;
+          margin-bottom: 28px;
           line-height: 1.15;
-          letter-spacing: -0.02em;
           color: var(--text);
-          max-width: 640px;
-          margin-bottom: 32px;
         }
 
-        .footer-actions {
+        .hero-actions {
           display: flex;
           gap: 12px;
           flex-wrap: wrap;
-          margin-bottom: 72px;
         }
 
-        .bottom-bar {
-          display: flex;
+        .btn-primary {
+          background: var(--text);
+          color: var(--bg);
+          padding: 13px 22px;
+          border-radius: 999px;
+          text-decoration: none;
+          font-size: 14px;
+          font-weight: 500;
+          display: inline-flex;
           align-items: center;
+          gap: 8px;
+          transition: background-color 0.15s ease;
+        }
+
+        .btn-primary:hover {
+          background: var(--accent);
+        }
+
+        .btn-ghost {
+          border: 1px solid var(--border);
+          padding: 13px 22px;
+          border-radius: 999px;
+          text-decoration: none;
+          font-size: 14px;
+          font-weight: 500;
+          color: var(--text);
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          transition: border-color 0.15s ease, color 0.15s ease;
+        }
+
+        .btn-ghost:hover {
+          border-color: var(--accent);
+          color: var(--accent);
+        }
+
+        .foot-bottom {
+          display: flex;
           justify-content: space-between;
+          align-items: center;
+          margin-top: 56px;
           padding-top: 24px;
           border-top: 1px solid var(--border);
           font-size: 13px;
           color: var(--muted);
           flex-wrap: wrap;
-          gap: 16px;
+          gap: 12px;
         }
 
-        .bottom-links {
+        .foot-links {
           display: flex;
-          align-items: center;
-          gap: 24px;
+          gap: 20px;
         }
 
-        .bottom-links a {
+        .foot-links a {
+          text-decoration: none;
           color: var(--muted);
           transition: color 0.15s ease;
         }
 
-        .bottom-links a:hover {
+        .foot-links a:hover {
           color: var(--accent);
-        }
-
-        @media (max-width: 520px) {
-          .footer {
-            padding: 60px 0 40px;
-          }
-
-          .footer-headline {
-            font-size: 28px;
-          }
-
-          .bottom-bar {
-            flex-direction: column;
-            align-items: flex-start;
-          }
         }
       `}</style>
     </footer>

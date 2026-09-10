@@ -28,28 +28,29 @@ export interface SocialLink {
 export const personalInfo = {
   name: "Salat Kipkemoi",
   role: "Software Engineer — ERP, AI Agents & Full-Stack Systems",
-  bio: "Software Engineer based in Nairobi, Kenya, working across Dynamics 365 Business Central (ERP), AI agents, and full-stack applications. Currently at Millenium Solutions East Africa Limited, transitioning from developer toward project management.",
+  bio: "I build the systems that sit between a business and its data — Dynamics 365 Business Central customizations, WhatsApp-native AI agents, and full-stack apps that run in production, not just in demos.",
   location: "Nairobi, Kenya",
   email: "salatkipkemoi38@gmail.com",
   status: "Open to new work",
   ctaHeadline: "Let's build something that runs in production.",
+  photoUrl: "/assets/salat-photo.png",
 };
 
 export const socialLinks: SocialLink[] = [
   {
     label: "GitHub",
     url: "https://github.com/carlKe2",
-    handle: "github.com/carlKe2 ↗",
+    handle: "carlKe2",
   },
   {
     label: "LinkedIn",
-    url: "https://linkedin.com/in/salat-caleb-kipkemoi-3b3875341",
-    handle: "in/salat-caleb ↗",
+    url: "https://www.linkedin.com/in/salat-caleb-kipkemoi-3b3875341/",
+    handle: "salat-caleb",
   },
   {
     label: "Email",
     url: "mailto:salatkipkemoi38@gmail.com",
-    handle: "salatkipkemoi38@gmail.com ↗",
+    handle: "salatkipkemoi38@gmail.com",
   },
 ];
 
