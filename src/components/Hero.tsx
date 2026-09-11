@@ -5,7 +5,23 @@ export const Hero: React.FC = () => {
   return (
     <section className="section hero-wrap">
       <div className="container">
-        <h1 className="hero-name">{personalInfo.name}</h1>
+        <div className="hero-stage">
+          <h1 className="hero-name">{personalInfo.name}</h1>
+          <div className="hero-photo-wrap">
+            <svg viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path
+                fill="var(--wave)"
+                d="M20,170 C60,100 130,230 170,170 C210,100 280,230 320,170 C320,260 260,330 170,330 C80,330 20,260 20,170 Z"
+              />
+            </svg>
+            <img
+              className="hero-photo"
+              src={personalInfo.photoUrl}
+              alt={personalInfo.name}
+            />
+          </div>
+        </div>
+
         <div className="hero-role">{personalInfo.role}</div>
 
         <div className="hero-grid">
@@ -24,20 +40,6 @@ export const Hero: React.FC = () => {
                 See the work
               </a>
             </div>
-          </div>
-
-          <div className="hero-photo-cell">
-            <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path
-                fill="var(--wave)"
-                d="M20,150 C60,90 120,210 160,150 C200,90 260,210 300,150 C300,230 250,300 160,300 C70,300 20,230 20,150 Z"
-              />
-            </svg>
-            <img
-              className="hero-photo"
-              src={personalInfo.photoUrl}
-              alt={personalInfo.name}
-            />
           </div>
 
           <div className="socials">
@@ -59,10 +61,16 @@ export const Hero: React.FC = () => {
 
       <style>{`
         .hero-wrap {
-          padding: 88px 0 64px;
+          padding: 64px 0 64px;
+        }
+
+        .hero-stage {
+          position: relative;
         }
 
         .hero-name {
+          position: relative;
+          z-index: 1;
           font-family: 'Space Grotesk', sans-serif;
           font-size: clamp(48px, 9vw, 104px);
           font-weight: 700;
@@ -71,8 +79,40 @@ export const Hero: React.FC = () => {
           color: var(--text);
         }
 
+        .hero-photo-wrap {
+          position: absolute;
+          right: 6%;
+          bottom: -86px;
+          width: 280px;
+          z-index: 2;
+        }
+
+        .hero-photo-wrap svg {
+          position: absolute;
+          top: -30px;
+          left: -30px;
+          width: 340px;
+          height: 340px;
+          opacity: 0.35;
+          z-index: 0;
+        }
+
+        .hero-photo {
+          position: relative;
+          z-index: 1;
+          display: block;
+          width: 100%;
+          aspect-ratio: 1 / 1;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 4px solid var(--bg);
+          box-shadow: 0 16px 36px rgba(20, 20, 15, 0.16);
+        }
+
         .hero-role {
-          margin-top: 22px;
+          position: relative;
+          z-index: 1;
+          margin-top: 118px;
           font-size: 15px;
           color: var(--accent);
           font-family: 'IBM Plex Mono', monospace;
@@ -80,40 +120,10 @@ export const Hero: React.FC = () => {
 
         .hero-grid {
           display: grid;
-          grid-template-columns: 1.1fr 0.9fr 0.85fr;
+          grid-template-columns: 1.3fr 0.9fr;
           gap: 32px;
-          margin-top: 36px;
-          align-items: center;
-        }
-
-        .hero-photo-cell {
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 260px;
-        }
-
-        .hero-photo-cell svg {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 320px;
-          height: 320px;
-          opacity: 0.32;
-          z-index: 0;
-        }
-
-        .hero-photo {
-          position: relative;
-          z-index: 1;
-          width: 200px;
-          height: 200px;
-          border-radius: 50%;
-          object-fit: cover;
-          border: 3px solid var(--bg);
-          box-shadow: 0 0 0 1px var(--border);
+          margin-top: 24px;
+          align-items: start;
         }
 
         .hero-desc {
@@ -200,22 +210,23 @@ export const Hero: React.FC = () => {
         @media (max-width: 820px) {
           .hero-grid {
             grid-template-columns: 1fr;
-            gap: 28px;
           }
 
-          .hero-photo-cell {
-            order: -1;
-            height: 200px;
+          .hero-photo-wrap {
+            position: static;
+            width: 170px;
+            margin: 24px auto 0;
           }
 
-          .hero-photo-cell svg {
-            width: 240px;
-            height: 240px;
+          .hero-photo-wrap svg {
+            width: 220px;
+            height: 220px;
+            top: -20px;
+            left: -20px;
           }
 
-          .hero-photo {
-            width: 150px;
-            height: 150px;
+          .hero-role {
+            margin-top: 0;
           }
         }
       `}</style>

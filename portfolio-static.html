@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salat Kipkemoi — Software Engineer, ERP &amp; AI Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFAF8;
+    --ink:#14140F;
+    --muted:#6B6B63;
+    --accent:#3D5A80;
+    --accent-soft:#E8EDF2;
+    --line:#DEDBD3;
+    --dot:#3B7A57;
+    --wave:#E2954D;
+    --radius:10px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; margin:0;}
+  a{color:inherit;}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  .wrap{max-width:1120px; margin:0 auto; padding:0 32px;}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0; z-index:20;
+    background:rgba(250,250,248,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+  }
+  .nav-left{display:flex; align-items:center; gap:14px;}
+  .nav-logo{
+    width:34px; height:34px; border-radius:50%;
+    object-fit:cover; border:1px solid var(--line);
+    flex-shrink:0;
+  }
+  .status{
+    display:flex; align-items:center; gap:8px;
+    font-size:13px; color:var(--muted);
+    border:1px solid var(--line); border-radius:999px;
+    padding:6px 12px 6px 10px;
+    white-space:nowrap;
+  }
+  .status .dot{
+    width:7px; height:7px; border-radius:50%; background:var(--dot);
+    box-shadow:0 0 0 3px rgba(59,122,87,0.15);
+  }
+  nav.links{display:flex; gap:28px; font-size:14px;}
+  nav.links a{text-decoration:none; color:var(--ink);}
+  nav.links a:hover{color:var(--accent);}
+  .cta{
+    background:var(--ink); color:var(--bg);
+    border:none; border-radius:999px;
+    padding:10px 18px; font-size:14px; font-weight:500;
+    text-decoration:none; white-space:nowrap;
+  }
+  .cta:hover{background:var(--accent);}
+  .nav-mobile-hide{display:flex; gap:24px; align-items:center;}
+
+  /* ---------- hero ---------- */
+  .hero{padding:64px 0 64px; border-bottom:1px solid var(--line);}
+  .hero-stage{position:relative;}
+  .hero-name{
+    position:relative; z-index:1;
+    font-size:clamp(48px,9vw,104px);
+    font-weight:700;
+    letter-spacing:-0.02em;
+    line-height:0.98;
+  }
+  .hero-photo-wrap{
+    position:absolute;
+    right:6%;
+    bottom:-86px;
+    width:280px;
+    z-index:2;
+  }
+  .hero-photo-wrap svg{
+    position:absolute;
+    top:-30px; left:-30px;
+    width:340px; height:340px;
+    opacity:0.35;
+    z-index:0;
+  }
+  .hero-photo{
+    position:relative; z-index:1;
+    display:block;
+    width:100%; aspect-ratio:1/1;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid var(--bg);
+    box-shadow:0 16px 36px rgba(20,20,15,0.16);
+  }
+  .hero-role{
+    position:relative; z-index:1;
+    margin-top:118px;
+    font-size:15px;
+    color:var(--accent);
+    font-family:'IBM Plex Mono',monospace;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.3fr 0.9fr;
+    gap:32px;
+    margin-top:24px;
+    align-items:start;
+  }
+  .hero-desc{
+    font-size:18px;
+    color:#3A3A34;
+    max-width:44ch;
+  }
+  .hero-actions{
+    margin-top:28px;
+    display:flex; gap:12px; flex-wrap:wrap;
+  }
+  .btn-primary{
+    background:var(--ink); color:var(--bg);
+    padding:13px 22px; border-radius:999px;
+    text-decoration:none; font-size:14px; font-weight:500;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary:hover{background:var(--accent);}
+  .btn-ghost{
+    border:1px solid var(--line);
+    padding:13px 22px; border-radius:999px;
+    text-decoration:none; font-size:14px; font-weight:500;
+    color:var(--ink);
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-ghost:hover{border-color:var(--accent); color:var(--accent);}
+
+  .socials{display:flex; flex-direction:column; gap:10px;}
+  .social-row{
+    display:flex; align-items:center; justify-content:space-between;
+    border:1px solid var(--line); border-radius:999px;
+    padding:11px 18px;
+    text-decoration:none; color:var(--ink);
+    font-size:14px;
+  }
+  .social-row:hover{border-color:var(--accent); background:var(--accent-soft);}
+  .social-row span.arrow{color:var(--muted); font-size:13px;}
+
+  /* ---------- section shell ---------- */
+  section{padding:64px 0; border-bottom:1px solid var(--line);}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:baseline;
+    margin-bottom:36px; gap:16px; flex-wrap:wrap;
+  }
+  .section-head h2{font-size:28px; font-weight:600;}
+  .section-head .count{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px; color:var(--muted);
+  }
+
+  /* ---------- work list ---------- */
+  .work-row{
+    display:grid;
+    grid-template-columns:36px 1fr auto;
+    gap:24px;
+    align-items:start;
+    padding:26px 0;
+    border-top:1px solid var(--line);
+    text-decoration:none; color:var(--ink);
+  }
+  .work-row:first-of-type{border-top:1px solid var(--line);}
+  .work-row:hover{background:var(--accent-soft); margin:0 -16px; padding:26px 16px; border-radius:var(--radius);}
+  .work-index{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px; color:var(--muted); padding-top:4px;
+  }
+  .work-title{font-size:19px; font-weight:600; margin-bottom:6px;}
+  .work-desc{font-size:14.5px; color:var(--muted); max-width:56ch; margin-bottom:14px;}
+  .tags{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px; color:var(--accent);
+    background:var(--accent-soft);
+    padding:4px 9px; border-radius:5px;
+  }
+  .work-link{
+    font-size:13px; color:var(--muted);
+    align-self:center; white-space:nowrap;
+  }
+  .work-row:hover .work-link{color:var(--accent);}
+
+  /* ---------- stack ---------- */
+  .stack-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:28px;
+  }
+  .stack-group h3{font-size:14px; color:var(--muted); font-weight:500; margin-bottom:12px; font-family:'Inter',sans-serif;}
+  .stack-group ul{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;}
+  .stack-group li{font-size:14.5px;}
+
+  /* ---------- experience ---------- */
+  .exp-row{
+    display:grid; grid-template-columns:160px 1fr;
+    gap:24px; padding:20px 0; border-top:1px solid var(--line);
+  }
+  .exp-row:first-of-type{border-top:1px solid var(--line);}
+  .exp-period{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--muted);}
+  .exp-role{font-size:16px; font-weight:600; margin-bottom:4px;}
+  .exp-org{font-size:14px; color:var(--muted); margin-bottom:8px;}
+  .exp-desc{font-size:14.5px; color:#3A3A34; max-width:58ch;}
+
+  /* ---------- contact / footer ---------- */
+  footer{padding:72px 0 48px;}
+  .contact-head{font-size:clamp(34px,5vw,54px); font-weight:600; max-width:14ch; margin-bottom:28px;}
+  .foot-bottom{
+    display:flex; justify-content:space-between; align-items:center;
+    margin-top:56px; padding-top:24px; border-top:1px solid var(--line);
+    font-size:13px; color:var(--muted); flex-wrap:wrap; gap:12px;
+  }
+  .foot-links{display:flex; gap:20px;}
+  .foot-links a{text-decoration:none; color:var(--muted);}
+  .foot-links a:hover{color:var(--accent);}
+
+  @media (max-width:820px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-photo-wrap{
+      position:static;
+      width:170px;
+      margin:24px auto 0;
+    }
+    .hero-photo-wrap svg{width:220px; height:220px; top:-20px; left:-20px;}
+    .hero-role{margin-top:0;}
+    .stack-grid{grid-template-columns:repeat(2,1fr);}
+    nav.links{display:none;}
+    .work-row{grid-template-columns:24px 1fr; row-gap:10px;}
+    .work-link{grid-column:2; padding-top:2px;}
+    .exp-row{grid-template-columns:1fr; gap:6px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="nav-left">
+      <img class="nav-logo" src="public/assets/salat-photo.png" alt="Salat Kipkemoi">
+      <div class="status"><span class="dot"></span>Open to new work</div>
+    </div>
+    <nav class="links nav-mobile-hide">
+      <a href="#work">Work</a>
+      <a href="#stack">Stack</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="cta" href="mailto:salatkipkemoi38@gmail.com">Say hello</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap" style="border-top:none;">
+    <div class="hero-stage">
+      <h1 class="hero-name">Salat Kipkemoi</h1>
+      <div class="hero-photo-wrap">
+        <svg viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg">
+          <path fill="var(--wave)" d="M20,170 C60,100 130,230 170,170 C210,100 280,230 320,170 C320,260 260,330 170,330 C80,330 20,260 20,170 Z"/>
+        </svg>
+        <img class="hero-photo" src="public/assets/salat-photo.png" alt="Salat Kipkemoi">
+      </div>
+    </div>
+    <div class="hero-role">Software Engineer — ERP, AI Agents &amp; Full-Stack Systems</div>
+
+    <div class="hero-grid">
+      <div>
+        <p class="hero-desc">I build the systems that sit between a business and its data — Dynamics 365 Business Central customizations, WhatsApp-native AI agents, and full-stack apps that run in production, not just in demos.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="https://github.com/carlKe2" target="_blank" rel="noopener">View GitHub →</a>
+          <a class="btn-ghost" href="#work">See the work</a>
+        </div>
+      </div>
+      <div class="socials">
+        <a class="social-row" href="https://github.com/carlKe2" target="_blank" rel="noopener">GitHub <span class="arrow">carlKe2</span></a>
+        <a class="social-row" href="https://www.linkedin.com/in/salat-caleb-kipkemoi-3b3875341/" target="_blank" rel="noopener">LinkedIn <span class="arrow">salat-caleb</span></a>
+        <a class="social-row" href="mailto:salatkipkemoi38@gmail.com">Email <span class="arrow">salatkipkemoi38@gmail.com</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="wrap">
+    <div class="section-head">
+      <h2>Projects</h2>
+      <span class="count">05 shipped &amp; in progress</span>
+    </div>
+
+    <a class="work-row" href="https://github.com/carlke2/Machakos-Mobileapp" target="_blank" rel="noopener">
+      <span class="work-index">01</span>
+      <div>
+        <div class="work-title">Machakos EOC — Field Responder App</div>
+        <p class="work-desc">Offline-first Flutter app for ambulance crews, built for Machakos County's Emergency Operations Center — dispatch, live inventory tracking, and shift-readiness checklists syncing against a Fastify/Prisma backend.</p>
+        <div class="tags"><span class="tag">Flutter</span><span class="tag">Fastify</span><span class="tag">Prisma</span><span class="tag">PostgreSQL</span></div>
+      </div>
+      <span class="work-link">Repo ↗</span>
+    </a>
+
+    <a class="work-row" href="https://github.com/carlKe2" target="_blank" rel="noopener">
+      <span class="work-index">02</span>
+      <div>
+        <div class="work-title">ERPGuide AI</div>
+        <p class="work-desc">A WhatsApp-based assistant that turns Business Central into a conversation — live OData lookups, support ticketing, and agent handoff across 100+ ERP procedures.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Twilio</span><span class="tag">Gemini</span><span class="tag">BC OData</span></div>
+      </div>
+      <span class="work-link">Repo ↗</span>
+    </a>
+
+    <a class="work-row" href="https://github.com/carlKe2" target="_blank" rel="noopener">
+      <span class="work-index">03</span>
+      <div>
+        <div class="work-title">OpsHub</div>
+        <p class="work-desc">Full-stack facility management system — auth, roles, booking, support ticketing, and an HR module, with a NestJS backend and a React frontend.</p>
+        <div class="tags"><span class="tag">NestJS</span><span class="tag">React</span><span class="tag">TypeScript</span></div>
+      </div>
+      <span class="work-link">Repo ↗</span>
+    </a>
+
+    <a class="work-row" href="https://github.com/carlKe2" target="_blank" rel="noopener">
+      <span class="work-index">04</span>
+      <div>
+        <div class="work-title">Local AI Agent</div>
+        <p class="work-desc">A fully local, offline-capable email agent — classifies incoming mail, drafts replies, and runs on a schedule, built on a free/local model stack with no cloud dependency.</p>
+        <div class="tags"><span class="tag">Ollama</span><span class="tag">FastAPI</span><span class="tag">SQLite</span><span class="tag">Gmail API</span></div>
+      </div>
+      <span class="work-link">Repo ↗</span>
+    </a>
+
+    <a class="work-row" href="https://github.com/carlKe2" target="_blank" rel="noopener">
+      <span class="work-index">05</span>
+      <div>
+        <div class="work-title">SME Universal Bot</div>
+        <p class="work-desc">A modular WhatsApp bot for small businesses — one core system, swappable capabilities, built to sit alongside whatever tools a business already runs.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">WhatsApp API</span></div>
+      </div>
+      <span class="work-link">Repo ↗</span>
+    </a>
+  </section>
+
+  <section id="stack" class="wrap">
+    <div class="section-head">
+      <h2>Stack</h2>
+      <span class="count">by domain</span>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-group">
+        <h3>ERP</h3>
+        <ul><li>Dynamics 365 Business Central</li><li>BC OData APIs</li><li>NAV</li></ul>
+      </div>
+      <div class="stack-group">
+        <h3>Backend</h3>
+        <ul><li>FastAPI</li><li>NestJS</li><li>Fastify</li><li>PostgreSQL</li><li>Prisma</li></ul>
+      </div>
+      <div class="stack-group">
+        <h3>AI &amp; Agents</h3>
+        <ul><li>Google Gemini</li><li>Ollama</li><li>Twilio</li></ul>
+      </div>
+      <div class="stack-group">
+        <h3>Frontend &amp; Mobile</h3>
+        <ul><li>React</li><li>Flutter</li><li>TailwindCSS</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="wrap">
+    <div class="section-head">
+      <h2>Experience</h2>
+    </div>
+    <div class="exp-row">
+      <div class="exp-period">Current</div>
+      <div>
+        <div class="exp-role">Software Engineer &amp; ERP Consultant</div>
+        <div class="exp-org">Millenium Solutions East Africa Limited</div>
+        <p class="exp-desc">Functional consulting and development on Dynamics 365 Business Central, building AI agents and full-stack tools for client operations, while transitioning toward project management.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap" id="contact">
+  <h2 class="contact-head">Let's build something that runs in production.</h2>
+  <div class="hero-actions">
+    <a class="btn-primary" href="mailto:salatkipkemoi38@gmail.com">Email me →</a>
+    <a class="btn-ghost" href="https://www.linkedin.com/in/salat-caleb-kipkemoi-3b3875341/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+  </div>
+  <div class="foot-bottom">
+    <span>Nairobi, Kenya</span>
+    <div class="foot-links">
+      <a href="https://github.com/carlKe2" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/salat-caleb-kipkemoi-3b3875341/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:salatkipkemoi38@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
